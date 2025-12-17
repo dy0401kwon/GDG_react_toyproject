@@ -1,0 +1,117 @@
+.calWrap {
+  width: 100%;
+  background: transparent;
+  color: #111;
+  border-radius: 0;
+  padding: 0;
+}
+
+.calHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.calYM {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #111;
+}
+
+.calNav {
+  display: flex;
+  gap: 10px;
+}
+
+.calBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: transparent;
+  color: #111;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.calBtn:hover {
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.calWeek {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  text-align: center;
+  margin: 18px 0 10px;
+  font-weight: 700;
+}
+
+.calWeek > div {
+  padding: 6px 0;
+}
+
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 18px 8px;
+}
+
+.calDay {
+  height: 44px;
+  border: none;
+  background: transparent;
+  color: #111;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.calDay.outMonth {
+  opacity: 0.25;
+}
+
+.calDay.sat {
+  color: #4ea3ff;
+}
+
+.calDay.sun {
+  color: #ff5b5b;
+}
+
+.calDay.selected {
+  background: #111;
+  color: #fff;
+}
+
+.calSelected {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.calSelectedTitle {
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.calEmpty {
+  opacity: 0.7;
+}
+
+.calTodoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.calTodoItem {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
