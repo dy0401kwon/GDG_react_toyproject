@@ -18,7 +18,7 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
 
     return (
         <div className="TodoList">
-        <h4>Todo List 🌱</h4>
+        <h4>Todo List</h4>
 
         <input
             value={search}

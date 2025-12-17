@@ -10,7 +10,7 @@
 
 .TodoList .searchbar:focus {
     outline: none;
-    border-bottom: 1px solid #1f93ff;
+    border-bottom: 1px solid #5b1fff;
     }
 
 .TodoList .list_wrapper {
