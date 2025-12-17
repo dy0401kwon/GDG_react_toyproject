@@ -1,0 +1,50 @@
+.delete-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.more-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  color: #666;
+}
+
+.more-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.delete-popup {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  padding: 0;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.delete-btn {
+  width: 56px;
+  height: 32px;
+  border-radius: 10px;
+  border: none;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #333;
+}
+
+.delete-btn:hover {
+  background: #e8e8e8;
+  transform: translateY(-1px);
+}

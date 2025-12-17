@@ -1,0 +1,56 @@
+.calendar-wrapper {
+  margin-top: 20px;
+}
+
+.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: "Pretendard", sans-serif;
+}
+
+.react-calendar__tile {
+  height: 64px;
+  border-radius: 14px;
+  position: relative;
+  font-weight: 600;
+}
+
+.react-calendar__tile--now {
+  background: #f2f4f8;
+}
+
+.selected-day {
+  background: var(--theme-color) !important;
+  color: white !important;
+}
+
+.few-todo {
+  border: 2px solid color-mix(in srgb, var(--theme-color) 40%, white);
+}
+
+.many-todo {
+  border: 2px solid var(--theme-color);
+}
+
+.all-done {
+  background: color-mix(in srgb, var(--theme-color) 20%, white);
+}
+
+.todo-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  min-width: 18px;
+  height: 18px;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--theme-color);
+  color: white;
+}
+
+.todo-badge.check {
+  font-size: 12px;
+  font-weight: 700;
+}

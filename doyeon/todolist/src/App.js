@@ -1,8 +1,14 @@
 import { useReducer, useRef } from "react";
-import Header from "./component/Header";
-import TodoEditor from "./component/TodoEditor";
-import TodoList from "./component/TodoList";
-import mockTodo from "./component/mockTodo";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./component/layout/Header";
+
+import Home from "./pages/Home";
+import MyPage from "./pages/MyPage/MyPage";
+import HabitTracker from "./pages/Habit/HabitTracker";
+
+import { ThemeProvider } from "./context/ThemeContext";
+
 import "./App.css";
 
 // reducer 함수
@@ -13,7 +19,9 @@ function reducer(state, action) {
 
     case "UPDATE":
       return state.map((it) =>
-        it.id === action.targetId ? { ...it, isDone: !it.isDone } : it
+        it.id === action.targetId
+          ? { ...it, isDone: !it.isDone }
+          : it
       );
 
     case "DELETE":
@@ -25,24 +33,31 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [todo, dispatch] = useReducer(reducer, mockTodo);
-  const idRef = useRef(3);
+  // ✅ mockTodo 제거 → 빈 배열로 시작
+  const [todo, dispatch] = useReducer(reducer, []);
+  const idRef = useRef(0);
 
-  // CREATE
-  const onCreate = (content) => {
+  // CREATE (선택 날짜 기준)
+  const onCreate = (content, date) => {
+    if (!content.trim()) return;
+
+    const targetDate = new Date(date);
+    targetDate.setHours(0, 0, 0, 0);
+
     dispatch({
       type: "CREATE",
       newItem: {
         id: idRef.current,
         content,
         isDone: false,
-        createdDate: new Date().getTime(),
+        createdDate: targetDate.getTime(),
       },
     });
+
     idRef.current += 1;
   };
 
-  // UPDATE (체크박스 토글)
+  // UPDATE
   const onUpdate = (targetId) => {
     dispatch({ type: "UPDATE", targetId });
   };
@@ -53,11 +68,30 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header />
-      <TodoEditor onCreate={onCreate} />
-      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
-    </div>
+    <ThemeProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  todo={todo}
+                  onCreate={onCreate}
+                  onUpdate={onUpdate}
+                  onDelete={onDelete}
+                />
+              }
+            />
+
+            <Route path="/habit" element={<HabitTracker />} />
+            <Route path="/mypage" element={<MyPage />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
